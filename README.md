@@ -34,27 +34,27 @@ uses a one-to-all association, a single datagram from one sender is routed to al
 
 ![Screenshot](http://s9.picofile.com/file/8347876242/Broadcast.png)
 
-## Features
+## Challenge–response authentication protocol
+
+In computer security, challenge–response authentication is a family of protocols in which one party presents a question ("challenge") and another party must provide a valid answer ("response") to be authenticated.
+
+The simplest example of a challenge–response protocol is password authentication, where the challenge is asking for the password and the valid response is the correct password.
+
+Clearly an adversary who can eavesdrop on a password authentication can then authenticate itself in the same way. One solution is to issue multiple passwords, each of them marked with an identifier. The verifier can ask for any of the passwords, and the prover must have that correct password for that identifier. Assuming that the passwords are chosen independently, an adversary who intercepts one challenge–response message pair has no clues to help with a different challenge at a different time. 
+
+![Screenshot](http://s5.picofile.com/file/8369396650/Chapter9_html_36614039.jpg)
+
+## Base features
 
 - Multi-threading
 - Error handling
 - Keylogger
 - Screenshot
 - Webcam-snapshot
-- Report
-- Clear tracking
-- Kill switch
-- Reverse shell with unicast addressing
-- Reverse shell with multicast addressing
-- Reverse shell with broadcast addressing
-- Store data in mysql database 
-- View data stored in the database
-- See a list of connected targets
-- View a list of connected targets information
-- Download file from target system
-- File upload to target system
-- View the total number of connected targets
-- View the target’s geographic location on the map
+- Reporting
+- Reverse shell with Unicast,Multicast,Broadcast addressing
+- Works with MySQL database
+- Download/Upload file
 - Scan famous ports of protocols (You can add another port to the list)
 
 ## Modules used
@@ -91,25 +91,24 @@ uses a one-to-all association, a single datagram from one sender is routed to al
 
 ## Notes
 
-1. Change the IP address and port number on line 305 and 306.
-2. The keylogging operation ends when your target presses the end button, then you can download the corresponding file from the target      system.
-3. The blackrose database must be built before it is executed. (**Ex: create database blackrose;**)
-4. If the database has a password, you must enter it in line 843.
-5. It is not necessary to remind you that the MySQL database must be installed.
-6. For **Windows** operating systems, libraries **MySQLdb and PyHook** must be **installed**.
+1. Change the IP address and port number on line 1411.
+2. Set your database configuration on line 1429.
+3. The keylogging operation ends when your target presses the end button, then you can download the corresponding file from the target      system.
+4. The keys are encrypted by the base64 algorithm. You must to decrypt it.
 
 ## Help
 
 | **Command** | **Description** |
 | ------- | ----------- |                                      
 | help or ? | Show this message |         
-| info | View a list of connected targets information |  
-| list | See a list of connected targets |   
-| about | What is Black-Rose and who is the author of it |       
-| location | View the target's geographic location on the map |                    
+| show info |  Show all connected targets information. |  
+| show list | Show all connected targets |   
+| show sysinfo | Show system information |
+| show interfaces | Show all connected interfaces information |
+| show database | Show all stored data in mysql database |
+| about | What is Black-Rose and who is the author of it |                         
 | store | Store data in mysql database |                
-| counter | View the total number of connected targets |
-| shutdown | Kill switch |
+| clear | Fresh terminal |
 | portscan | Scan famous ports of protocols (You can add another port to the list) |
 | select | Reverse shell with unicast addressing |
 | range | Reverse shell with multicast addressing |
@@ -121,15 +120,20 @@ uses a one-to-all association, a single datagram from one sender is routed to al
 | screenshot | Take screenshot |
 | webcapture | Take picture with target webcam |
 
-## Installation
+## Installation & Usage
 
 ```markdown
 ### For Windows
 
-0. Download it
-1. pip install --upgrade pip
-2. Installing MySQL-python-1.2.3.win32-py2.7
-2. pip install -r Black_Rose_requirements && pip install -r Windows_Rose_requirements
+STEP-0. Download it
+STEP-1. pip install --upgrade pip
+STEP-2. Installing MySQL-python-1.2.3.win32-py2.7, pycrypto-2.6.1.win32-py2.7
+STEP-3. Run Modules.py
+STEP-4. pip install -r Black-Rose-Requirements.txt (If built)
+STEP-5. Register: python BRR.py
+STEP-6. Decode IV, AES KEY, Shared Secret KEY in python interpreter
+STEP-7. Copy IV, AES KEY, Shared Secret KEY in Rose.py
+STEP-8. Run Black-Rose.py
 
 ### For Linux
 
@@ -140,23 +144,16 @@ uses a one-to-all association, a single datagram from one sender is routed to al
 4. sudo pip install -r Black_Rose_requirements.txt && pip install -r Linux_Rose_requirements.txt.txt
 ```
 
-## Usage
-
-```markdown
-- Attacker system: Black-Rose.py
-- Target system: Rose.py
-```
-
 ## Screenshot
 
 ### On windows
 
-![Screenshot](http://s8.picofile.com/file/8347888000/Main_page.png)
+![Screenshot](http://s3.picofile.com/file/8369397226/Screenshot_4.png)
 
 
 ### On Linux
 
-![Screenshot](http://s8.picofile.com/file/8347894542/Linux_Main_Page.png)
+![Screenshot](http://s2.picofile.com/file/8369397292/Screenshot_7.png)
 
 
 **Never forget: You Can't Run From Your Shadow. But You Can Invite It To Dance**
