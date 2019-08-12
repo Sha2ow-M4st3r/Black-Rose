@@ -70,7 +70,10 @@ Clearly an adversary who can eavesdrop on a password authentication can then aut
 | MySQLdb     | OS              |
 | Socket      | PrettyTable     |
 | Urllib2     | Termcolor       |
-| Ctypes      | Gmplot          |
+| Ctypes      | Getpass         |
+| Netifaces   | Hashlib         |
+| Base64      | Hmac            |
+| UUID        | Crypto          |
 
 ### For Rose
 
