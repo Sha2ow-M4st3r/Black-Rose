@@ -85,19 +85,24 @@ Clearly an adversary who can eavesdrop on a password authentication can then aut
 | Getpass       | Pygame         |
 | Urllib2       | Pygame.camera  |
 | Socket        | PyScreenshot   |
-| Ctypes        | Pyxhook        |
+| Hmac          | Pyxhook        |
 | Time          | Win32api       |
 | Win32console  | Win32gui       |
 | PyHook        | Pythoncom      |
-| MSS           | ----           |
+| MSS           | Hashlib        |
+| Base64        | Crypto
 
 
-## Notes
+## Notes - Black-Rose
 
 1. Change the IP address and port number on line 1411.
 2. Set your database configuration on line 1429.
 3. The keylogging operation ends when your target presses the end button, then you can download the corresponding file from the target      system.
 4. The keys are encrypted by the base64 algorithm. You must to decrypt it.
+
+## Notes - Rose
+
+1. Change the IP address and port number on line 451
 
 ## Help
 
@@ -140,11 +145,15 @@ STEP-8. Run Black-Rose.py
 
 ### For Linux
 
-0. sudo apt-get install python-mysqldb
-1. sudo pip install --upgrade pip
-2. sudo git clone https://github.com/Sha2ow-M4st3r/Black-Rose.git
-3. cd Black-Rose
-4. sudo pip install -r Black_Rose_requirements.txt && pip install -r Linux_Rose_requirements.txt.txt
+STEP-0. sudo git clone https://github.com/Sha2ow-M4st3r/Black-Rose.git
+STEP-1. pip install --upgrade pip
+STEP-2. Run Modules.py
+STEP-3. pip install -r Black-Rose-Requirements.txt (If built)
+STEP-4. Register: python BRR.py
+STEP-5. Decode IV, AES KEY, Shared Secret KEY in python interpreter
+STEP-6. Copy IV, AES KEY, Shared Secret KEY in Rose.py
+STEP-7. Run Black-Rose.py
+
 ```
 
 ## Screenshot
